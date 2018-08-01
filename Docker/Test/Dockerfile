@@ -2,7 +2,7 @@
 FROM python:3.7-slim
 
 # Set the working directory to /app
-WORKDIR /app/Flask_Base
+WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 ADD . /app
