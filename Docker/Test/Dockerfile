@@ -21,5 +21,5 @@ EXPOSE 5000
 ENV FLASK_APP kitsu.py
 
 # Initializing flask app 
-ENTRYPOINT [ "test.sh"]
+ENTRYPOINT ["test.sh"]
 
