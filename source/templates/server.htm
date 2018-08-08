@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            height: 300px;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+
+</head>
+
+<body>
+    ​
+    <h2>Server Page Template</h2>
+    ​
+    <div class="row">
+        <div class="column" id="s1" style="background-color:#aaa;">
+            <h2>Server 1</h2>
+        </div>
+        <div class="column" id="s2" style="background-color:#bbb;">
+            <h2>Server 2</h2>
+        </div>
+        <div class="column" id="s3" style="background-color:#ccc;">
+            <h2>Server 3</h2>
+        </div>
+    </div>
+    ​
+</body>
+
+</html>
