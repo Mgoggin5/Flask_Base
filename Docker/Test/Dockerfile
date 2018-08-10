@@ -1,6 +1,7 @@
 # Use an official Python runtime as a parent image
 FROM python:3.7-slim
-
+FROM mgoggin5/mongodb:latest
+FROM mgoggin5/postgres:latest
 # Set the working directory to /app
 WORKDIR /usr/local/kitsu
 

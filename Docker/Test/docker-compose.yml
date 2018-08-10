@@ -6,6 +6,8 @@ services:
       context: ../../
       dockerfile: Docker/Test/Dockerfile
     image: mgoggin5/base_image:flask
+    image: mgoggin5/mongodb:latest
+    image: mgoggin5/postgres:latest
     ports:
       - "80:5000"
     
