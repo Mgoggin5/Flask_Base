@@ -1,0 +1,13 @@
+{% extends "base.htm" %}
+{% block app_content %} 
+    {$ if form %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+
+    {% if hosts %}
+        {% for host in hosts %}
+        <h1>{{host.hostname}}</h1>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
