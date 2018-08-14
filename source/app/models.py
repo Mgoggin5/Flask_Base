@@ -63,3 +63,5 @@ class Host(Document):
     default_values = {'creation': datetime.utcnow}
     use_dot_notation = True    
 
+
+Document.register([Host])

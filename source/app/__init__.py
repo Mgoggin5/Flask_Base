@@ -24,5 +24,4 @@ moment = Moment(app)
 redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
 
-Document.register([Host])
 from app import routes, models 
