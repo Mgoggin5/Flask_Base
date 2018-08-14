@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_moment import Moment
+from flask_mongoengine import MongoEngine
 
 from redis import Redis, RedisError
 
@@ -13,8 +14,7 @@ from redis import Redis, RedisError
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
-Document = Document
-Connection = Connection(app.config['MONGODB_HOST'], app.config['MONGODB_PORT'])
+mdb = MongoEngine(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'

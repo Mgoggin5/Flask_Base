@@ -1,5 +1,5 @@
 from app import db, login, app
-from app import Document
+from app import mdb
 from hashlib import md5
 from datetime import datetime
 from time import time
@@ -52,16 +52,23 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
-class Host(Document):
-    __collection__ = 'hosts'
-    structure = {
-        'title': unicode,
-        'text': unicode,
-        'creation': datetime,
-    }
-    required_fields = ['title', 'creation']
-    default_values = {'creation': datetime.utcnow}
-    use_dot_notation = True    
 
 
-Document.register([Host])
+class RedFish(db.EmbeddedDocument):
+
+    restart = mdb.BooleanField(required = True)
+    update = mdb.StringField(max_length = 255)
+
+class BMC(db.EmbeddedDocument): 
+
+    hostname = mdb.StringField(required = True)
+    ip_address = mdb.StringField(required = True)
+    redfish =  mdb.EmbeddedDocumentField(RedFish)
+
+
+class Host(mdb.Document):
+
+    hostname = mdb.StringField(required = True)
+    os = mdb.StringField(max_length = 255)
+    application = mdb.StringField(max_length = 255)
+    bmc = mdb.EmbeddedDocumentField(BMC)

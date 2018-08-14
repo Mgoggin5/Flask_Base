@@ -9,5 +9,7 @@ class Config(object):
         'postgres' or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    MONGODB_HOST = os.environ.get('MONGODB_HOST') or 'mongodb'
-    MONGO_PORT = os.environ.get('MONGODB_PORT') or 27017
+    MONGODB_DB = 'project1'
+    MONGODB_HOST = 'mongodb'
+    MONGODB_PORT = 27017
+    
