@@ -1,0 +1,10 @@
+{% block title %}
+    {% if title %} {{ title }} - {% else %}{{ _('Kitsu App') }}{% endif %}
+{% endblock %}
+
+{% block content %} 
+    {% block app_content %}
+    {% endblock %}
+{% endblock %}
+
+

@@ -54,12 +54,12 @@ def load_user(id):
 
 
 
-class RedFish(db.EmbeddedDocument):
+class RedFish(mdb.EmbeddedDocument):
 
     restart = mdb.BooleanField(required = True)
     update = mdb.StringField(max_length = 255)
 
-class BMC(db.EmbeddedDocument): 
+class BMC(mdb.EmbeddedDocument): 
 
     hostname = mdb.StringField(required = True)
     ip_address = mdb.StringField(required = True)

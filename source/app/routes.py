@@ -4,6 +4,10 @@ from redis import Redis, RedisError
 import os
 import socket
 from app import redis, app, mdb
+from app.models import Host
+from flask_mongoengine.wtf import model_form
+
+HostForm = model_form(Host)
 
 @app.route("/")
 def hello():
@@ -18,14 +22,11 @@ def hello():
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 
 @app.route('/new', methods=["GET", "POST"])
-def new_host():
+def new_host(request):
+    form = HostForm(request.POST)
     if request.method == 'POST':
-        host = mdb.Host()
-        host.title = request.form['title']
-        host.text = request.form['text']
-        host.save()
-        return redirect(url_for('show_all'))
-    return render_template('new.html')
+        redirect('Done')
+    return render_template('new.htm', form = form)
 
 @app.route('/show-all')
 def show_all():

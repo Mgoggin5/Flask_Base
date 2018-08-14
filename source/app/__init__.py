@@ -1,5 +1,4 @@
 from flask import Flask, request
-from mongokit import Connection, Document
 from config.base import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
