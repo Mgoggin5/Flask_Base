@@ -22,8 +22,8 @@ def hello():
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 
 @app.route('/new', methods=["GET", "POST"])
-def new_host(request):
-    form = HostForm(request.POST)
+def new_host():
+    form = HostForm()
     if request.method == 'POST':
         redirect('Done')
     return render_template('new.htm', form = form)

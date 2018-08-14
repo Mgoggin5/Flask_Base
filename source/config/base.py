@@ -13,3 +13,4 @@ class Config(object):
     MONGODB_HOST = 'mongodb'
     MONGODB_PORT = 27017
     
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'

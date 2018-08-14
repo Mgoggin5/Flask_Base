@@ -1,7 +1,7 @@
 {% extends "base.htm" %}
 {% block app_content %} 
-    {$ if form %}
-    {{ wtf.quick_form(form) }}
+    {% if form %}
+    {{ form.hostname }}
     {% endif %}
 
     {% if hosts %}
