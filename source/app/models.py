@@ -1,5 +1,5 @@
 from app import db, login, app
-
+from app import Document
 from hashlib import md5
 from datetime import datetime
 from time import time
@@ -51,4 +51,15 @@ class User(UserMixin, db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+class Host(Document):
+    __collection__ = 'hosts'
+    structure = {
+        'title': unicode,
+        'text': unicode,
+        'creation': datetime,
+    }
+    required_fields = ['title', 'creation']
+    default_values = {'creation': datetime.utcnow}
+    use_dot_notation = True    
 
